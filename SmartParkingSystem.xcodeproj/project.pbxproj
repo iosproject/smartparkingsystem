@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		301524EB18E1CF0B00B1787D /* ParkingSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = 301524EA18E1CF0B00B1787D /* ParkingSpot.m */; };
+		301524EE18E1E20100B1787D /* ParkingLot.m in Sources */ = {isa = PBXBuildFile; fileRef = 301524ED18E1E20100B1787D /* ParkingLot.m */; };
 		3F0B821B18E090E300374631 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F0B821A18E090E300374631 /* Foundation.framework */; };
 		3F0B821D18E090E300374631 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F0B821C18E090E300374631 /* CoreGraphics.framework */; };
 		3F0B821F18E090E300374631 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F0B821E18E090E300374631 /* UIKit.framework */; };
@@ -34,6 +36,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		301524E918E1CF0B00B1787D /* ParkingSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParkingSpot.h; sourceTree = "<group>"; };
+		301524EA18E1CF0B00B1787D /* ParkingSpot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParkingSpot.m; sourceTree = "<group>"; };
+		301524EC18E1E20100B1787D /* ParkingLot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParkingLot.h; sourceTree = "<group>"; };
+		301524ED18E1E20100B1787D /* ParkingLot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParkingLot.m; sourceTree = "<group>"; };
 		3F0B821718E090E300374631 /* SmartParkingSystem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartParkingSystem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F0B821A18E090E300374631 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3F0B821C18E090E300374631 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -112,9 +118,11 @@
 		3F0B822018E090E300374631 /* SmartParkingSystem */ = {
 			isa = PBXGroup;
 			children = (
-				3F0B822918E090E300374631 /* AppDelegate.h */,
-				3F0B822A18E090E300374631 /* AppDelegate.m */,
 				3F0B822C18E090E300374631 /* Main.storyboard */,
+				301524EC18E1E20100B1787D /* ParkingLot.h */,
+				301524ED18E1E20100B1787D /* ParkingLot.m */,
+				301524E918E1CF0B00B1787D /* ParkingSpot.h */,
+				301524EA18E1CF0B00B1787D /* ParkingSpot.m */,
 				3F0B822F18E090E300374631 /* ViewController.h */,
 				3F0B823018E090E300374631 /* ViewController.m */,
 				3F0B823218E090E300374631 /* Images.xcassets */,
@@ -126,6 +134,8 @@
 		3F0B822118E090E300374631 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3F0B822918E090E300374631 /* AppDelegate.h */,
+				3F0B822A18E090E300374631 /* AppDelegate.m */,
 				3F0B822218E090E300374631 /* SmartParkingSystem-Info.plist */,
 				3F0B822318E090E300374631 /* InfoPlist.strings */,
 				3F0B822618E090E300374631 /* main.m */,
@@ -250,7 +260,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F0B823118E090E300374631 /* ViewController.m in Sources */,
+				301524EE18E1E20100B1787D /* ParkingLot.m in Sources */,
 				3F0B822B18E090E300374631 /* AppDelegate.m in Sources */,
+				301524EB18E1CF0B00B1787D /* ParkingSpot.m in Sources */,
 				3F0B822718E090E300374631 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -456,6 +468,7 @@
 				3F0B824B18E090E300374631 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3F0B824C18E090E300374631 /* Build configuration list for PBXNativeTarget "SmartParkingSystemTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +477,7 @@
 				3F0B824E18E090E300374631 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

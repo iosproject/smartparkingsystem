@@ -8,7 +8,10 @@
 // initial comment
 
 #import <UIKit/UIKit.h>
+#import "ParkingLot.h"
 
 @interface ViewController : UIViewController
+
+@property NSMutableArray *parkingLots;
 
 @end
