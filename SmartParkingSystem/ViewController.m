@@ -15,13 +15,14 @@
 
 @implementation ViewController
 
-@synthesize parkingLots = _parkingLots;
+@synthesize parkingLots = _parkingLots, myLabel = _myLabel;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    [_myLabel setText:@"Loading..."];
     // ParkingLot *lot = [[ParkingLot alloc] initWithId:@"2"];
     // [self.parkingLots addObject:lot];
     [self fetchParkingLots];
@@ -41,6 +42,7 @@
     
     //NSLog(@"parking_lots: %@", parkingSpots);
     //NSLog(@"parking_lots count: %@", [NSString stringWithFormat:@"%d",[parkingSpots count]]);
+    NSMutableString *screentext = [[NSMutableString alloc] init];
     
     for (int i = 0; i < [parkingSpots count]; i++) {
         
@@ -50,9 +52,14 @@
         NSString *trimmedString = [[lot objectForKey:@"max_number_of_spots"] stringByReplacingOccurrencesOfString:@" " withString:@""];
         
         int max_spots = [trimmedString intValue];
+        [screentext appendString:[NSString stringWithFormat:@"id: %@, name: %@, max spots: %d\n",lot_id, lot_name, max_spots]];
         
         NSLog(@"%@", [NSString stringWithFormat:@"id: %@, name: %@, max spots: %d",lot_id, lot_name, max_spots] );
+        
+        
     }
+    
+    [_myLabel setText:screentext];
 }
 
 - (void) fetchParkingLots {

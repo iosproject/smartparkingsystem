@@ -12,6 +12,8 @@
 
 @interface ViewController : UIViewController
 
+
 @property NSMutableArray *parkingLots;
+@property (strong, nonatomic) IBOutlet UITextView *myLabel;
 
 @end
