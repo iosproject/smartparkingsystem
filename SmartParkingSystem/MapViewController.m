@@ -92,7 +92,7 @@
 - (void) fetchParkingSpots {
     
     dispatch_async(kspQueue, ^{
-        NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://localhost/kean_smart_park/parking_spot_json.php?parking_lot_id=%@&type=%@", self.lotId, self.userType]]];
+        NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.kean.skyfz.com/parking/parking_spot_json.php?parking_lot_id=%@&type=%@", self.lotId, self.userType]]];
         [self performSelectorOnMainThread:@selector(fetchedData:)
                                withObject:data waitUntilDone:YES];
     });
