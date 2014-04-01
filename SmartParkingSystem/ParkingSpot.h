@@ -8,15 +8,21 @@
 
 #import <Foundation/Foundation.h>
 
-#define AVAILABLE = 1;
-#define NOT_AVAILABLE = 0;
-
 @interface ParkingSpot : NSObject
 
 @property (strong, nonatomic) NSString *spotId;
+@property (strong, nonatomic) NSString *lotId;
 @property (strong, nonatomic) NSString *type;
-@property NSInteger *position_x;
-@property NSInteger *position_y;
-@property NSInteger *available;
+@property int position_x;
+@property int position_y;
+@property int available;
 
+- (BOOL) spotIsAvailable;
+
+- (id) initWithSpotId:(NSString *)aSpotId
+             andLotId:(NSString *)aLotId
+              andType:(NSString *)aType
+         andAvailable:(int)isAvailable
+         andPositionX:(int)x
+         andPositionY:(int)y;
 @end

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		301524EB18E1CF0B00B1787D /* ParkingSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = 301524EA18E1CF0B00B1787D /* ParkingSpot.m */; };
 		301524EE18E1E20100B1787D /* ParkingLot.m in Sources */ = {isa = PBXBuildFile; fileRef = 301524ED18E1E20100B1787D /* ParkingLot.m */; };
+		30385ADB18EB1B4A003C487F /* ParkingLotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30385ADA18EB1B4A003C487F /* ParkingLotViewController.m */; };
+		30385ADE18EB1BA4003C487F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30385ADD18EB1BA4003C487F /* MapViewController.m */; };
 		3F0B821B18E090E300374631 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F0B821A18E090E300374631 /* Foundation.framework */; };
 		3F0B821D18E090E300374631 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F0B821C18E090E300374631 /* CoreGraphics.framework */; };
 		3F0B821F18E090E300374631 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F0B821E18E090E300374631 /* UIKit.framework */; };
@@ -40,6 +42,10 @@
 		301524EA18E1CF0B00B1787D /* ParkingSpot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParkingSpot.m; sourceTree = "<group>"; };
 		301524EC18E1E20100B1787D /* ParkingLot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParkingLot.h; sourceTree = "<group>"; };
 		301524ED18E1E20100B1787D /* ParkingLot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParkingLot.m; sourceTree = "<group>"; };
+		30385AD918EB1B4A003C487F /* ParkingLotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParkingLotViewController.h; sourceTree = "<group>"; };
+		30385ADA18EB1B4A003C487F /* ParkingLotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParkingLotViewController.m; sourceTree = "<group>"; };
+		30385ADC18EB1BA4003C487F /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		30385ADD18EB1BA4003C487F /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		3F0B821718E090E300374631 /* SmartParkingSystem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartParkingSystem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F0B821A18E090E300374631 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3F0B821C18E090E300374631 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -119,6 +125,10 @@
 			isa = PBXGroup;
 			children = (
 				3F0B822C18E090E300374631 /* Main.storyboard */,
+				30385ADC18EB1BA4003C487F /* MapViewController.h */,
+				30385ADD18EB1BA4003C487F /* MapViewController.m */,
+				30385AD918EB1B4A003C487F /* ParkingLotViewController.h */,
+				30385ADA18EB1B4A003C487F /* ParkingLotViewController.m */,
 				301524EC18E1E20100B1787D /* ParkingLot.h */,
 				301524ED18E1E20100B1787D /* ParkingLot.m */,
 				301524E918E1CF0B00B1787D /* ParkingSpot.h */,
@@ -259,7 +269,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30385ADB18EB1B4A003C487F /* ParkingLotViewController.m in Sources */,
 				3F0B823118E090E300374631 /* ViewController.m in Sources */,
+				30385ADE18EB1BA4003C487F /* MapViewController.m in Sources */,
 				301524EE18E1E20100B1787D /* ParkingLot.m in Sources */,
 				3F0B822B18E090E300374631 /* AppDelegate.m in Sources */,
 				301524EB18E1CF0B00B1787D /* ParkingSpot.m in Sources */,

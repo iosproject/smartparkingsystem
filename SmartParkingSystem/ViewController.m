@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#define kspQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+#import "ParkingLotViewController.h"
 
 @interface ViewController ()
 
@@ -15,60 +15,32 @@
 
 @implementation ViewController
 
-@synthesize parkingLots = _parkingLots, myLabel = _myLabel;
+@synthesize plm = _plm, myLabel = _myLabel;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
     
+    /*
     [_myLabel setText:@"Loading..."];
-    // ParkingLot *lot = [[ParkingLot alloc] initWithId:@"2"];
-    // [self.parkingLots addObject:lot];
-    [self fetchParkingLots];
+    _plm = [[ParkingLotManager alloc] init];
+    NSMutableString *dataString = [[NSMutableString alloc] init];
+    [dataString appendString:@"Lots\n"];
     
-}
-
-- (void)fetchedData:(NSData *)responseData {
-    //parse out the json data
-    NSError* error;
-    NSDictionary* json = [NSJSONSerialization
-                          JSONObjectWithData:responseData
-                          
-                          options:kNilOptions
-                          error:&error];
-    
-    NSArray* parkingSpots = [json objectForKey:@"parking_lots"];
-    
-    //NSLog(@"parking_lots: %@", parkingSpots);
-    //NSLog(@"parking_lots count: %@", [NSString stringWithFormat:@"%d",[parkingSpots count]]);
-    NSMutableString *screentext = [[NSMutableString alloc] init];
-    
-    for (int i = 0; i < [parkingSpots count]; i++) {
+    for (int i = 0; i < [_plm.parkingLots count]; i++) {
         
-        NSDictionary *lot = [parkingSpots objectAtIndex:i];
-        NSString *lot_id = [lot objectForKey:@"id"];
-        NSString *lot_name = [lot objectForKey:@"name"];
-        NSString *trimmedString = [[lot objectForKey:@"max_number_of_spots"] stringByReplacingOccurrencesOfString:@" " withString:@""];
+        NSString *myid = [NSString stringWithFormat:@"%d",i];
+        ParkingLot *pl = [_plm fetchParkingLotWithId: myid];
         
-        int max_spots = [trimmedString intValue];
-        [screentext appendString:[NSString stringWithFormat:@"id: %@, name: %@, max spots: %d\n",lot_id, lot_name, max_spots]];
-        
-        NSLog(@"%@", [NSString stringWithFormat:@"id: %@, name: %@, max spots: %d",lot_id, lot_name, max_spots] );
-        
-        
+        NSLog(@"%@", pl.name);
+        [dataString appendString:[NSString stringWithFormat:@"%@\n",pl.name]];
     }
     
-    [_myLabel setText:screentext];
-}
-
-- (void) fetchParkingLots {
-    
-    dispatch_async(kspQueue, ^{
-        NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://localhost/kean_smart_park/parking_lot_json.php"]];
-        [self performSelectorOnMainThread:@selector(fetchedData:)
-                               withObject:data waitUntilDone:YES];
-    });
+    [_myLabel setText:dataString];
+    */
+    // ParkingLot *lot = [[ParkingLot alloc] initWithId:@"2"];
+    // [self.parkingLots addObject:lot];
+    // [self fetchParkingLots];
     
 }
 
@@ -79,4 +51,44 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)onSelect:(id)sender {
+    
+    [self performSegueWithIdentifier:@"showParkingLots" sender:sender];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    UIButton *button = sender;
+    NSString *userType = nil;
+    
+    if([button isEqual:self.studentButton]) {
+        
+        NSLog(@"student segue");
+        userType = @"STUDENT";
+        
+    } else if ([button isEqual:self.facultyButton]) {
+        
+        NSLog(@"faculty segue");
+        userType = @"FACULTY";
+        
+    } else if ([button isEqual:self.handicapButton]) {
+        
+        NSLog(@"handicap segue");
+        userType = @"HANDICAP";
+        
+    } else if ([button isEqual:self.visitorButton]) {
+        
+        NSLog(@"visitor segue");
+        userType = @"VISITOR";
+        
+    }
+    
+    if ([[segue identifier] isEqualToString:@"showParkingLots"]) {
+        
+        ParkingLotViewController *plvc = [segue destinationViewController];
+        plvc.userType = userType;
+    }
+    
+    
+}
 @end

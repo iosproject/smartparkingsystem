@@ -10,19 +10,21 @@
 
 @implementation ParkingSpot
 
-@synthesize spotId, type, position_x, position_y, available;
+@synthesize spotId, lotId, type, position_x, position_y, available;
 
 - (id) initWithSpotId:(NSString *)aSpotId
+             andLotId:(NSString *)aLotId
               andType:(NSString *)aType
-         andAvailable:(NSInteger *)isAvailable
-         andPositionX:(NSInteger *)x
-         andPositionY:(NSInteger *)y
+         andAvailable:(int)isAvailable
+         andPositionX:(int)x
+         andPositionY:(int)y
 
 {
     self = [super init];
     
     if (self) {
         self.spotId = aSpotId;
+        self.lotId = aLotId;
         self.type = aType;
         self.available = isAvailable;
         self.position_x = x;
@@ -30,5 +32,13 @@
     }
     
     return self;
+}
+
+-(BOOL) spotIsAvailable {
+    
+    if(self.available == 1) {
+        return YES;
+    } else
+        return NO;
 }
 @end
