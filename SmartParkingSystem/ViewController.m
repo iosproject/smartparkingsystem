@@ -15,7 +15,7 @@
 
 @implementation ViewController
 
-@synthesize plm = _plm, myLabel = _myLabel;
+@synthesize myLabel = _myLabel;
 
 - (void)viewDidLoad
 {

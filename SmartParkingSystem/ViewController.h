@@ -8,11 +8,9 @@
 // initial comment
 
 #import <UIKit/UIKit.h>
-#import "ParkingLotManager.h"
 
 @interface ViewController : UIViewController
 
-@property ParkingLotManager *plm;
 @property (strong, nonatomic) IBOutlet UITextView *myLabel;
 
 // view buttons

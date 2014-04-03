@@ -58,16 +58,16 @@
     
     NSMutableString *dataString = [[NSMutableString alloc] init];
     
-    [dataString appendString:[NSString stringWithFormat:@"%@ has %d spots of available of type %@", self.lotName, [self.parkingSpots count], self.userType]];
+    [dataString appendString:[NSString stringWithFormat:@"%@ has %d spots available of type %@", self.lotName, [self.parkingSpots count], self.userType]];
     
     self.lotData.text = dataString;
     /*
-    int yPos = 100;
+    
     NSDictionary *lot = nil;
     NSString *lot_name = nil;
     for (int i = 0; i < [self.parkingLots count]; i++) {
         
-        // grab a lot from the array
+        // grab a spot from the array
         lot = [self.parkingLots objectAtIndex:i];
         
         // get the lot's name
@@ -92,7 +92,7 @@
 - (void) fetchParkingSpots {
     
     dispatch_async(kspQueue, ^{
-        NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://localhost/kean_smart_park/parking_spot_json.php?parking_lot_id=%@&type=%@", self.lotId, self.userType]]];
+        NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.kean.skyfz.com/parking/parking_spot_json.php?parking_lot_id=%@&type=%@", self.lotId, self.userType]]];
         [self performSelectorOnMainThread:@selector(fetchedData:)
                                withObject:data waitUntilDone:YES];
     });
