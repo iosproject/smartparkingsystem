@@ -13,7 +13,7 @@
 @property (strong, nonatomic) NSString *lotId;
 @property (strong, nonatomic) NSString *name;
 @property int maxNumberSpots;
-@property NSMutableArray *spots;
+@property NSMutableArray *parkingSpots;
 
 -(id)initWithId:(NSString *)anId;
 -(id)initWithId:(NSString *)anId andName:(NSString *)aName andMax:(int)max;

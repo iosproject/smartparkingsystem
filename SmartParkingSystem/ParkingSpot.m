@@ -10,8 +10,6 @@
 
 @implementation ParkingSpot
 
-@synthesize spotId, lotId, type, position_x, position_y, available;
-
 - (id) initWithSpotId:(NSString *)aSpotId
              andLotId:(NSString *)aLotId
               andType:(NSString *)aType

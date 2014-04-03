@@ -20,28 +20,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    /*
-    [_myLabel setText:@"Loading..."];
-    _plm = [[ParkingLotManager alloc] init];
-    NSMutableString *dataString = [[NSMutableString alloc] init];
-    [dataString appendString:@"Lots\n"];
-    
-    for (int i = 0; i < [_plm.parkingLots count]; i++) {
-        
-        NSString *myid = [NSString stringWithFormat:@"%d",i];
-        ParkingLot *pl = [_plm fetchParkingLotWithId: myid];
-        
-        NSLog(@"%@", pl.name);
-        [dataString appendString:[NSString stringWithFormat:@"%@\n",pl.name]];
-    }
-    
-    [_myLabel setText:dataString];
-    */
-    // ParkingLot *lot = [[ParkingLot alloc] initWithId:@"2"];
-    // [self.parkingLots addObject:lot];
-    // [self fetchParkingLots];
-    
 }
 
 
@@ -51,13 +29,13 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)onSelect:(id)sender {
-    
+- (IBAction)onSelect:(id)sender
+{
     [self performSegueWithIdentifier:@"showParkingLots" sender:sender];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{    
     UIButton *button = sender;
     NSString *userType = nil;
     
