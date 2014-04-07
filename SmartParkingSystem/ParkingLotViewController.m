@@ -67,8 +67,8 @@
     // NSLog(@"parking_lots: %@", parkingLots);
     NSLog(@"fetched %@ parking lots", [NSString stringWithFormat:@"%d",[self.parkingLots count]]);
     
-    int yPos = 120;
-    int xPos= 27;
+    int yPos = 110;
+    int xPos= 16;
     NSDictionary *lot = nil;
     NSString *lot_name = nil;
     int numberOfLots = [self.parkingLots count];
@@ -107,14 +107,16 @@
         //[button addSubview:button.titleLabel];
         
         //create label on top for the avai;lable parking lot
+        UILabel *bgLabel = [[UILabel alloc]init];
+        [bgLabel setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"label_bg.png"]]];
         
         UILabel *topLabel = [[UILabel alloc]init];
         [topLabel setTextColor:[UIColor whiteColor]];
-        [topLabel setFont:[UIFont fontWithName:@"Times New Roman" size:10.0]];
+        [topLabel setFont:[UIFont fontWithName:@"Times New Roman" size:15.0]];
         
         UILabel *bottomLabel = [[UILabel alloc]init];
         [bottomLabel setTextColor:[UIColor whiteColor]];
-        [bottomLabel setFont:[UIFont fontWithName:@"Times New Roman" size:10.0]];
+        [bottomLabel setFont:[UIFont fontWithName:@"Times New Roman" size:12.0]];
         [bottomLabel setText: lot_name];
         
         if ([self.userType isEqualToString:@"STUDENT"]) {
@@ -137,16 +139,18 @@
 
         // place the button on the screen
         
-        button.frame = CGRectMake(xPos, yPos, 60.0, 60.0);
-        topLabel.frame = CGRectMake(xPos+25, yPos-25, 30.0, 30.0);
-        bottomLabel.frame = CGRectMake(xPos, yPos+50, 60.0,30.0);
+        button.frame = CGRectMake(xPos, yPos, 80.0, 80.0);
+        bgLabel.frame = CGRectMake(xPos+50, yPos-25, 40.0, 40.0);
+        topLabel.frame = CGRectMake(xPos+55, yPos-25, 30.0, 30.0);
+        bottomLabel.frame = CGRectMake(xPos, yPos+78, 80.0,30.0);
         [self.view addSubview:button];
+        [self.view addSubview:bgLabel];
         [self.view addSubview:topLabel];
         [self.view addSubview:bottomLabel];
         xPos += 105;
         if(xPos >= 315) {
-            xPos = 27;
-            yPos+= 120;
+            xPos = 16;
+            yPos+= 130;
         }
         
         

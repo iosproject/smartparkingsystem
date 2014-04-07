@@ -11,6 +11,7 @@
 		301524EE18E1E20100B1787D /* ParkingLot.m in Sources */ = {isa = PBXBuildFile; fileRef = 301524ED18E1E20100B1787D /* ParkingLot.m */; };
 		30385ADB18EB1B4A003C487F /* ParkingLotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30385ADA18EB1B4A003C487F /* ParkingLotViewController.m */; };
 		30385ADE18EB1BA4003C487F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30385ADD18EB1BA4003C487F /* MapViewController.m */; };
+		30506CDE18F34AE60022EBD9 /* label_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 30506CDD18F34AE60022EBD9 /* label_bg.png */; };
 		3F0B821B18E090E300374631 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F0B821A18E090E300374631 /* Foundation.framework */; };
 		3F0B821D18E090E300374631 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F0B821C18E090E300374631 /* CoreGraphics.framework */; };
 		3F0B821F18E090E300374631 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F0B821E18E090E300374631 /* UIKit.framework */; };
@@ -54,6 +55,7 @@
 		30385ADA18EB1B4A003C487F /* ParkingLotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParkingLotViewController.m; sourceTree = "<group>"; };
 		30385ADC18EB1BA4003C487F /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		30385ADD18EB1BA4003C487F /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		30506CDD18F34AE60022EBD9 /* label_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = label_bg.png; sourceTree = "<group>"; };
 		3F0B821718E090E300374631 /* SmartParkingSystem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartParkingSystem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F0B821A18E090E300374631 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3F0B821C18E090E300374631 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -192,6 +194,7 @@
 		3F7287EC18ED99900046BDCB /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				30506CDD18F34AE60022EBD9 /* label_bg.png */,
 				3F7287F318EDBD7C0046BDCB /* 5.png */,
 				3F7287F418EDBD7C0046BDCB /* 2.png */,
 				3F7287F518EDBD7C0046BDCB /* 3.png */,
@@ -287,6 +290,7 @@
 				3F119C9118EC96A200ED9C96 /* homescreen.png in Resources */,
 				3F0B822E18E090E300374631 /* Main.storyboard in Resources */,
 				3F7287F918EDBD7C0046BDCB /* 3.png in Resources */,
+				30506CDE18F34AE60022EBD9 /* label_bg.png in Resources */,
 				3F7287F718EDBD7C0046BDCB /* 5.png in Resources */,
 				3F7287F818EDBD7C0046BDCB /* 2.png in Resources */,
 				3F7287EE18ED9DCB0046BDCB /* hometitle.png in Resources */,
