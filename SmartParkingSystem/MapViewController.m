@@ -13,7 +13,8 @@
 #define kspQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
 @interface MapViewController ()
-
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic) UIImageView *lotImageView;
 @end
 
 @implementation MapViewController
@@ -38,11 +39,47 @@
 - (void)initilizeView {
     
     [self fetchParkingSpots];
-    self.lotLabel.text = self.lotName;
+    
     
 }
 
+- (void) setUpScrollView {
+    
+    UIImage *lotImage = nil;
+    
+    if ([self.lotName isEqualToString:@"Kean Hall"]) {
+        lotImage = [UIImage imageNamed:@"KeanF-01.png"];
+    }
+    else if([self.lotName isEqualToString:@"Bruce"]) {
+        lotImage = [UIImage imageNamed:@"BruceF-01.png"];
+    }
+    else if([self.lotName isEqualToString:@"Hennings Hall"]) {
+        lotImage = [UIImage imageNamed:@"HenningF-01.png"];
+    }
+    else if([self.lotName isEqualToString:@"STEM"]) {
+        lotImage = [UIImage imageNamed:@"STEMF-01.png"];
+    }
+    else if([self.lotName isEqualToString:@"Vaughn Eames"]) {
+        lotImage = [UIImage imageNamed:@"VEF-01.png"];
+    }
+
+    self.lotImageView = [[UIImageView alloc] initWithImage:lotImage];
+    [self.scrollView addSubview:self.lotImageView];
+    
+    self.scrollView.contentSize = self.lotImageView.bounds.size;
+    [self.scrollView setBackgroundColor:[UIColor greenColor]];
+    self.scrollView.minimumZoomScale = 0.5;
+    self.scrollView.maximumZoomScale = 2.0;
+    
+}
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
+    return self.lotImageView;
+}
+
+
 - (void)fetchedData:(NSData *)responseData {
+    
     //parse out the json data
     NSError* error;
     NSDictionary* json = [NSJSONSerialization
@@ -53,14 +90,11 @@
     
     self.parkingSpots = [json objectForKey:@"parking_spots"];
     
-    // NSLog(@"parking_lots: %@", parkingLots);
     NSLog(@"fetched %@ parking spots", [NSString stringWithFormat:@"%d",[self.parkingSpots count]]);
+    [self setUpScrollView];
     
-    NSMutableString *dataString = [[NSMutableString alloc] init];
-    
-    [dataString appendString:[NSString stringWithFormat:@"%@ has %d spots available of type %@", self.lotName, [self.parkingSpots count], self.userType]];
-    
-    self.lotData.text = dataString;
+    // NSMutableString *dataString = [[NSMutableString alloc] init];
+    // [dataString appendString:[NSString stringWithFormat:@"%@ has %d spots available of type %@", self.lotName, [self.parkingSpots count], self.userType]];
     /*
     
     NSDictionary *lot = nil;

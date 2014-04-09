@@ -65,7 +65,7 @@
     self.parkingLots = [json objectForKey:@"parking_lots"];
     
     // NSLog(@"parking_lots: %@", parkingLots);
-    NSLog(@"fetched %@ parking lots", [NSString stringWithFormat:@"%d",[self.parkingLots count]]);
+    // NSLog(@"fetched %@ parking lots", [NSString stringWithFormat:@"%d",[self.parkingLots count]]);
     
     int yPos = 110;
     int xPos= 16;
@@ -99,7 +99,7 @@
         //[button setBackgroundColor:[UIColor greenColor]];
         [button setBackgroundImage:[UIImage imageNamed:fileName]
                             forState:UIControlStateNormal];
-        NSLog(@"fileName = %@", fileName);
+        // NSLog(@"fileName = %@", fileName);
         [fileName setString:@""];
         // remove the button since hiding it doesn't work
         [button.titleLabel removeFromSuperview];
@@ -189,7 +189,7 @@
         
         if([button.titleLabel.text isEqualToString:lot_name]) {
             
-            NSLog(@"map segue for lot %@", lot_name);
+            // NSLog(@"map segue for lot %@", lot_name);
             MapViewController *mvc = [segue destinationViewController];
             mvc.lotId = [lot objectForKey:@"id"];
             mvc.lotName = lot_name;

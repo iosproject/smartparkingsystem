@@ -8,11 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MapViewController : UIViewController
-
-// temporary properties
-@property (strong, nonatomic) IBOutlet UILabel *lotLabel;
-@property (strong, nonatomic) IBOutlet UITextView *lotData;
+@interface MapViewController : UIViewController <UIScrollViewDelegate>
 
 // string types
 @property (strong, nonatomic) NSString *lotId;

@@ -41,22 +41,22 @@
     
     if([button isEqual:self.studentButton]) {
         
-        NSLog(@"student segue");
+        // NSLog(@"student segue");
         userType = @"STUDENT";
         
     } else if ([button isEqual:self.facultyButton]) {
         
-        NSLog(@"faculty segue");
+        // NSLog(@"faculty segue");
         userType = @"FACULTY";
         
     } else if ([button isEqual:self.handicapButton]) {
         
-        NSLog(@"handicap segue");
+        // NSLog(@"handicap segue");
         userType = @"HANDICAP";
         
     } else if ([button isEqual:self.visitorButton]) {
         
-        NSLog(@"visitor segue");
+        // NSLog(@"visitor segue");
         userType = @"VISITOR";
         
     }
