@@ -10,6 +10,11 @@
 
 @interface MapViewController : UIViewController <UIScrollViewDelegate>
 
+// labels
+@property (strong, nonatomic) IBOutlet UILabel *headerLabel;
+@property (strong, nonatomic) IBOutlet UILabel *footerLabel;
+
+
 // string types
 @property (strong, nonatomic) NSString *lotId;
 @property (strong, nonatomic) NSString *lotName;

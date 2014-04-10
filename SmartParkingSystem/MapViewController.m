@@ -39,8 +39,47 @@
 - (void)initilizeView {
     
     [self fetchParkingSpots];
+    [self.headerLabel setText:self.lotName];
     
     
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    /*
+    // 4
+    CGRect scrollViewFrame = self.scrollView.frame;
+    CGFloat scaleWidth = scrollViewFrame.size.width / self.scrollView.contentSize.width;
+    CGFloat scaleHeight = scrollViewFrame.size.height / self.scrollView.contentSize.height;
+    CGFloat minScale = MIN(scaleWidth, scaleHeight);
+    self.scrollView.minimumZoomScale = minScale;
+    
+    // 5
+    self.scrollView.maximumZoomScale = 1.0f;
+    self.scrollView.zoomScale = minScale;
+    
+    // 6
+    [self centerScrollViewContents];
+     */
+}
+
+- (void)centerScrollViewContents
+{
+    CGSize scrollViewSize = self.scrollView.bounds.size;
+    CGSize contentSize = self.lotImageView.frame.size;
+    CGPoint contentOffset;
+    
+    if (contentSize.width < scrollViewSize.width)
+    {
+        contentOffset.x = -(scrollViewSize.width - contentSize.width) / 2.0;
+    }
+    
+    if (contentSize.height < scrollViewSize.height)
+    {
+        contentOffset.y = -(scrollViewSize.height - contentSize.height) / 2.0;
+    }
+    
+    [self.scrollView setContentOffset:contentOffset];
 }
 
 - (void) setUpScrollView {
@@ -65,18 +104,18 @@
 
     self.lotImageView = [[UIImageView alloc] initWithImage:lotImage];
     [self.scrollView addSubview:self.lotImageView];
-    
     self.scrollView.contentSize = self.lotImageView.bounds.size;
-    [self.scrollView setBackgroundColor:[UIColor greenColor]];
-    self.scrollView.minimumZoomScale = 0.5;
+    [self.scrollView setBackgroundColor:[UIColor blackColor]];
+    self.scrollView.minimumZoomScale = 0.10;
     self.scrollView.maximumZoomScale = 2.0;
+    self.scrollView.zoomScale = 0.1;
     
+    [self centerScrollViewContents];
 }
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
     return self.lotImageView;
 }
-
 
 - (void)fetchedData:(NSData *)responseData {
     
@@ -92,6 +131,7 @@
     
     NSLog(@"fetched %@ parking spots", [NSString stringWithFormat:@"%d",[self.parkingSpots count]]);
     [self setUpScrollView];
+    [self.footerLabel setText:[NSString stringWithFormat:@"Available Parkings: %d",[self.parkingSpots count]]];
     
     // NSMutableString *dataString = [[NSMutableString alloc] init];
     // [dataString appendString:[NSString stringWithFormat:@"%@ has %d spots available of type %@", self.lotName, [self.parkingSpots count], self.userType]];
