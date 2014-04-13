@@ -23,4 +23,9 @@
 // parking spot array
 @property (strong, nonatomic) NSArray *parkingSpots;
 
+// methods
+- (void)centerScrollViewContents;
+- (void)scrollViewDoubleTapped:(UITapGestureRecognizer*)recognizer;
+- (void)scrollViewTwoFingerTapped:(UITapGestureRecognizer*)recognizer;
+
 @end
