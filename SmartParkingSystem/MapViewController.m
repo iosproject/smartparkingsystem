@@ -68,8 +68,12 @@
     
     [self.scrollView addSubview:self.lotImageView];
     
-    self.scrollView.contentSize = lotImage.size;//self.lotImageView.bounds.size;
+    self.scrollView.contentSize = lotImage.size;
     [self.scrollView setBackgroundColor:[UIColor blackColor]];
+    
+    // add rounded corners
+    self.scrollView.layer.cornerRadius = 18;
+    self.scrollView.layer.masksToBounds = YES;
     
     // add gesture recognizers
     UITapGestureRecognizer *doubleTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewDoubleTapped:)];
