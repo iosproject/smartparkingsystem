@@ -49,7 +49,7 @@
     UIImage *lotImage = nil;
     
     if ([self.lotName isEqualToString:@"Kean Hall"]) {
-        lotImage = [UIImage imageNamed:@"KeanF-01.png"];
+        lotImage = [self imageByDrawingSpotsOnImage:[UIImage imageNamed:@"KeanF-01.png"]];
     }
     else if([self.lotName isEqualToString:@"Bruce"]) {
         lotImage = [UIImage imageNamed:@"BruceF-01.png"];
@@ -161,6 +161,29 @@
     [self centerScrollViewContents];
 }
 
+- (int)getAvailableParkingsCount
+{
+    int count = 0;
+    NSDictionary *spot = nil;
+    NSString *isAvailable = nil;
+    
+    for (int i = 0; i < [self.parkingSpots count]; i++) {
+        
+        // grab a spot from the array
+        spot = [self.parkingSpots objectAtIndex:i];
+        
+        // get the lot's name
+        isAvailable = [spot objectForKey:@"available"];
+        
+        if([isAvailable isEqualToString:@"1"])
+        {
+            count++;
+        }
+    }
+    
+    return count;
+}
+
 - (void)fetchedData:(NSData *)responseData {
     
     //parse out the json data
@@ -173,9 +196,9 @@
     
     self.parkingSpots = [json objectForKey:@"parking_spots"];
     
-    NSLog(@"fetched %@ parking spots", [NSString stringWithFormat:@"%d",[self.parkingSpots count]]);
+    // NSLog(@"fetched %@ parking spots", [NSString stringWithFormat:@"%d",[self.parkingSpots count]]);
     [self setUpScrollView];
-    [self.footerLabel setText:[NSString stringWithFormat:@"Available Parkings: %d",[self.parkingSpots count]]];
+    [self.footerLabel setText:[NSString stringWithFormat:@"Available Parkings: %d",[self getAvailableParkingsCount]]];
     
     // NSMutableString *dataString = [[NSMutableString alloc] init];
     // [dataString appendString:[NSString stringWithFormat:@"%@ has %d spots available of type %@", self.lotName, [self.parkingSpots count], self.userType]];
@@ -208,7 +231,7 @@
 }
 
 - (void) fetchParkingSpots {
-    
+    // 1384, 1385
     dispatch_async(kspQueue, ^{
         NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.kean.skyfz.com/parking/parking_spot_json.php?parking_lot_id=%@&type=%@", self.lotId, self.userType]]];
         [self performSelectorOnMainThread:@selector(fetchedData:)
@@ -217,6 +240,30 @@
     
 }
 
-
+- (UIImage *)imageByDrawingSpotsOnImage:(UIImage *)image
+{
+	// begin a graphics context of sufficient size
+	UIGraphicsBeginImageContext(image.size);
+    
+	// draw original image into the context
+	[image drawAtPoint:CGPointZero];
+    
+	// get the context for CoreGraphics
+	CGContextRef ctx = UIGraphicsGetCurrentContext();
+    
+	// set the RGBA color
+    CGContextSetRGBFillColor(ctx, 0, 255, 0, 1.0);
+    
+    // Draw a circle (filled) (x, y, w, h)
+    CGContextFillEllipseInRect(ctx, CGRectMake(1277, 1961, 20.0, 20.0));
+    
+	// make image out of bitmap context
+	UIImage *retImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+	// free the context
+	UIGraphicsEndImageContext();
+    
+	return retImage;
+}
 
 @end
