@@ -49,13 +49,13 @@
     UIImage *lotImage = nil;
     
     if ([self.lotName isEqualToString:@"Kean Hall"]) {
-        lotImage = [self imageByDrawingSpotsOnImage:[UIImage imageNamed:@"KeanF-01.png"]];
+        lotImage = [UIImage imageNamed:@"KeanF-01.png"];
     }
     else if([self.lotName isEqualToString:@"Bruce"]) {
         lotImage = [UIImage imageNamed:@"BruceF-01.png"];
     }
     else if([self.lotName isEqualToString:@"Hennings Hall"]) {
-        lotImage = [UIImage imageNamed:@"HenningF-01.png"];
+        lotImage = [self imageByDrawingSpotsOnImage:[UIImage imageNamed:@"HenningF-01.png"]];
     }
     else if([self.lotName isEqualToString:@"STEM"]) {
         lotImage = [UIImage imageNamed:@"STEMF-01.png"];
@@ -251,11 +251,47 @@
 	// get the context for CoreGraphics
 	CGContextRef ctx = UIGraphicsGetCurrentContext();
     
-	// set the RGBA color
-    CGContextSetRGBFillColor(ctx, 0, 255, 0, 1.0);
+    NSDictionary *spot = nil;
+    NSString *isAvailable = nil;
+    int spot_id = 0;
     
-    // Draw a circle (filled) (x, y, w, h)
-    CGContextFillEllipseInRect(ctx, CGRectMake(1277, 1961, 20.0, 20.0));
+    // loop through the parking spots
+    for (int i = 0; i < [self.parkingSpots count]; i++) {
+        
+        // grab a spot from the array
+        spot = [self.parkingSpots objectAtIndex:i];
+        
+        // get the spots availability
+        isAvailable = [spot objectForKey:@"available"];
+        
+        // get the id
+        spot_id = [[spot objectForKey:@"id"] intValue];
+       
+        if([isAvailable isEqualToString:@"1"] && spot_id >= 572 && spot_id <= 576)
+        {
+            
+            // set the RGBA color to green
+            CGContextSetRGBFillColor(ctx, 0, 255, 0, 1.0);
+            
+            int x = [[spot objectForKey:@"position_x"] intValue];
+            int y = [[spot objectForKey:@"position_y"] intValue];
+            
+            // Draw a circle (filled) (x, y, w, h)
+            CGContextFillEllipseInRect(ctx, CGRectMake(x, y, 20.0, 20.0));
+            
+        }
+        else if ([isAvailable isEqualToString:@"0"] && spot_id >= 572 && spot_id <= 576)
+        {
+            // set the RGBA color to green
+            CGContextSetRGBFillColor(ctx, 255, 0, 0, 1.0);
+            
+            int x = [[spot objectForKey:@"position_x"] intValue];
+            int y = [[spot objectForKey:@"position_y"] intValue];
+            
+            // Draw a circle (filled) (x, y, w, h)
+            CGContextFillEllipseInRect(ctx, CGRectMake(x, y, 20.0, 20.0));
+        }
+    }
     
 	// make image out of bitmap context
 	UIImage *retImage = UIGraphicsGetImageFromCurrentImageContext();
