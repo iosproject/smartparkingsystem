@@ -195,39 +195,8 @@
                           error:&error];
     
     self.parkingSpots = [json objectForKey:@"parking_spots"];
-    
-    // NSLog(@"fetched %@ parking spots", [NSString stringWithFormat:@"%d",[self.parkingSpots count]]);
     [self setUpScrollView];
     [self.footerLabel setText:[NSString stringWithFormat:@"Available Parkings: %d",[self getAvailableParkingsCount]]];
-    
-    // NSMutableString *dataString = [[NSMutableString alloc] init];
-    // [dataString appendString:[NSString stringWithFormat:@"%@ has %d spots available of type %@", self.lotName, [self.parkingSpots count], self.userType]];
-    /*
-    
-    NSDictionary *lot = nil;
-    NSString *lot_name = nil;
-    for (int i = 0; i < [self.parkingLots count]; i++) {
-        
-        // grab a spot from the array
-        lot = [self.parkingLots objectAtIndex:i];
-        
-        // get the lot's name
-        lot_name = [lot objectForKey:@"name"];
-        
-        // create a button
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [button addTarget:self
-                   action:@selector(onSelect:)
-         forControlEvents:UIControlEventTouchUpInside];
-        [button setTitle:lot_name forState:UIControlStateNormal];
-        
-        // place the button on the screen
-        yPos += 50;
-        button.frame = CGRectMake(80.0, yPos, 160.0, 40.0);
-        [self.view addSubview:button];
-        
-    }
-     */
 }
 
 - (void) fetchParkingSpots {
