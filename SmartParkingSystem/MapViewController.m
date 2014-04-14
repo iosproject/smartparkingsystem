@@ -39,7 +39,7 @@
 - (void)initilizeView {
     
     [self fetchParkingSpots];
-    [self.headerLabel setText:self.lotName];
+    [self.headerLabel setText:[self.lotName uppercaseString]];
     
     
 }
@@ -240,6 +240,7 @@
     
 }
 
+// this function takes in an image to draw on and then returns it
 - (UIImage *)imageByDrawingSpotsOnImage:(UIImage *)image
 {
 	// begin a graphics context of sufficient size
