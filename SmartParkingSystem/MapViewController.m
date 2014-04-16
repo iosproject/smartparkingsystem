@@ -259,7 +259,7 @@
             int y = [[spot objectForKey:@"position_y"] intValue];
             
             // Draw a circle (filled) (x, y, w, h)
-            CGContextFillEllipseInRect(ctx, CGRectMake(x, y, 20.0, 20.0));
+            CGContextFillEllipseInRect(ctx, CGRectMake(x-10, y, 20.0, 20.0));
         }
     }
     
