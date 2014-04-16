@@ -39,6 +39,7 @@
 		3F7287FC18F59CDA0046BDCB /* KeanF-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F7287FB18F59CDA0046BDCB /* KeanF-01.png */; };
 		3F7287FE18F59CE70046BDCB /* BruceF-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F7287FD18F59CE70046BDCB /* BruceF-01.png */; };
 		3F77C87C18FEEEB2006D4DF7 /* VEF-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F77C87B18FEEEB2006D4DF7 /* VEF-01.png */; };
+		3F9C5E6918FF0F5100386ED5 /* homebuttonbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F9C5E6818FF0F5100386ED5 /* homebuttonbg.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		3F7287FB18F59CDA0046BDCB /* KeanF-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "KeanF-01.png"; sourceTree = "<group>"; };
 		3F7287FD18F59CE70046BDCB /* BruceF-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BruceF-01.png"; sourceTree = "<group>"; };
 		3F77C87B18FEEEB2006D4DF7 /* VEF-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VEF-01.png"; sourceTree = "<group>"; };
+		3F9C5E6818FF0F5100386ED5 /* homebuttonbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homebuttonbg.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 		3F7287EC18ED99900046BDCB /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				3F9C5E6818FF0F5100386ED5 /* homebuttonbg.png */,
 				3F77C87B18FEEEB2006D4DF7 /* VEF-01.png */,
 				30C41C7318FC84F8009771D6 /* HenningF-01.png */,
 				30C41C7118FC84EC009771D6 /* STEMF-01.png */,
@@ -309,6 +312,7 @@
 				3F7287FC18F59CDA0046BDCB /* KeanF-01.png in Resources */,
 				3F7287F918EDBD7C0046BDCB /* 3.png in Resources */,
 				30506CDE18F34AE60022EBD9 /* label_bg.png in Resources */,
+				3F9C5E6918FF0F5100386ED5 /* homebuttonbg.png in Resources */,
 				30C41C7218FC84EC009771D6 /* STEMF-01.png in Resources */,
 				3F7287F718EDBD7C0046BDCB /* 5.png in Resources */,
 				3F7287F818EDBD7C0046BDCB /* 2.png in Resources */,
