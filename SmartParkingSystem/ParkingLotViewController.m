@@ -32,6 +32,10 @@
 {
     [super viewDidLoad];
     
+    //start loading, show activity indicator
+    [self.view addSubview:self.activityIndicator];
+    [self.activityIndicator startAnimating];
+    
     // Do any additional setup after loading the view.
     if ([self.userType isEqualToString:@"STUDENT"]) {
         
@@ -155,6 +159,9 @@
         
         
     }
+    
+    // done hide activity indicator
+    [self.activityIndicator stopAnimating];
 }
 
 - (void) fetchParkingLots {

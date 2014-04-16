@@ -12,5 +12,6 @@
 
 @property (strong, nonatomic) NSString *userType;
 @property (strong, nonatomic) IBOutlet UILabel *viewLabel;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
